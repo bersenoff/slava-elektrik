@@ -3,11 +3,18 @@ import styled from "styled-components";
 
 import { BreakPoint } from "../../constants/breakpoints";
 
-type Props = {
+export type Props = {
   label: string;
+  loading?: boolean;
+  disabled?: boolean;
+  onClick?: () => void;
   fullWidth?: boolean;
   shadow?: boolean;
 };
+
+const Button: React.FC<Props> = ({ label, loading, ...props }) => (
+  <StyledButton {...props}>{loading ? "Подождите..." : label}</StyledButton>
+);
 
 const StyledButton = styled.button<Omit<Props, "label">>`
   background: #ff2722;
@@ -39,9 +46,5 @@ const StyledButton = styled.button<Omit<Props, "label">>`
     padding: 12px 16px;
   }
 `;
-
-const Button: React.FC<Props> = ({ label, ...props }) => (
-  <StyledButton {...props}>{label}</StyledButton>
-);
 
 export default Button;

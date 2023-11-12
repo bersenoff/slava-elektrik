@@ -1,20 +1,16 @@
-import React, { HTMLInputTypeAttribute } from "react";
+import React from "react";
+import InputMask from "react-input-mask";
 import styled from "styled-components";
+import { Props as InputProps } from "../Input/Input";
 import { BreakPoint } from "../../constants/breakpoints";
 
-export type Props = {
-  type: HTMLInputTypeAttribute;
-  value?: string;
-  name?: string;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  placeholder?: string;
-  fullWidth?: boolean;
-  white?: boolean;
-};
+type Props = Omit<InputProps, "type">;
 
-const Input: React.FC<Props> = (props) => <StyledInput {...props} />;
+const PhoneInput: React.FC<Props> = (props) => (
+  <StyledInput mask="+7 (999) 999-99-99" {...props} />
+);
 
-const StyledInput = styled.input<Props>`
+const StyledInput = styled(InputMask)<Props>`
   background: ${({ white }) => (white ? "white" : "rgba(0, 0, 0, 0.1)")};
   border: none;
   border-radius: 10px;
@@ -39,4 +35,4 @@ const StyledInput = styled.input<Props>`
   }
 `;
 
-export default Input;
+export default PhoneInput;
