@@ -31,7 +31,7 @@ const Modal: React.FC<React.PropsWithChildren<Props>> = ({
       <CloseButton>
         <Icon name={IconName.Close} />
       </CloseButton>
-      <div ref={ref}>{children}</div>
+      <Content ref={ref}>{children}</Content>
     </Container>
   );
 };
@@ -44,8 +44,8 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.75);
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   z-index: 10;
 `;
 
@@ -67,6 +67,10 @@ const CloseButton = styled.div`
     height: 48px;
     width: 48px;
   }
+`;
+
+const Content = styled.div`
+  width: calc(100% - 24px);
 `;
 
 export default Modal;

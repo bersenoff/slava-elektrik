@@ -164,8 +164,7 @@ const Container = styled.div<Props>`
   @media ${BreakPoint.Mobile} {
     gap: 12px;
     padding: 12px;
-    margin: 0 12px;
-    width: calc(100vw - 24px);
+    width: 100%;
   }
 
   @media ${BreakPoint.Tablet} {
