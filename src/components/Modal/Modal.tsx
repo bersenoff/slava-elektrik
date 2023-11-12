@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import Icon, { IconName } from "../Icon";
 import { BreakPoint } from "../../constants/breakpoints";
