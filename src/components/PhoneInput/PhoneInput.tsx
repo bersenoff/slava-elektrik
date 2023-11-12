@@ -7,7 +7,7 @@ import { BreakPoint } from "../../constants/breakpoints";
 type Props = Omit<InputProps, "type">;
 
 const PhoneInput: React.FC<Props> = (props) => (
-  <StyledInput mask="+7 (999) 999-99-99" {...props} />
+  <StyledInput mask="+7 (999) 999-99-99" inputmode="numeric" {...props} />
 );
 
 const StyledInput = styled(InputMask)<Props>`

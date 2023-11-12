@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 import useBreakpoints from "../../hooks/useBreakpoints";
-import Button from "../../components/Button";
 import Logo from "../../components/Logo";
 import MainLabel from "../../components/MainLabel";
 import Phone from "../../components/Phone";
 import ResponsiveWrapper from "../../components/ResponsiveWrapper";
 
 import { BreakPoint } from "../../constants/breakpoints";
+import FormButton from "../FormButton";
 
 const Footer: React.FC = () => {
   const { isTablet, isDesktop } = useBreakpoints();
@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
             </InfoContainer>
           )}
           {isTablet && <Phone />}
-          <Button label="ЗАКАЗАТЬ ЗВОНОК" shadow />
+          <FormButton label="ЗАКАЗАТЬ ЗВОНОК" shadow />
         </Content>
       </ResponsiveWrapper>
     </StyledHeader>

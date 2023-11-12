@@ -4,6 +4,7 @@ import { BreakPoint } from "../../constants/breakpoints";
 
 export type Props = {
   type: HTMLInputTypeAttribute;
+  inputmode?: string;
   value?: string;
   name?: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;

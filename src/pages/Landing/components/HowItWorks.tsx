@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import Section from "./Section";
 import { BreakPoint } from "../../../constants/breakpoints";
-import Button from "../../../components/Button";
 import Text, { TextType } from "../../../components/Text";
 import useBreakpoints from "../../../hooks/useBreakpoints";
+import FormButton from "../../../entities/FormButton";
 
 const HowItWorks: React.FC = () => {
   const { isMobile } = useBreakpoints();
@@ -48,7 +48,7 @@ const HowItWorks: React.FC = () => {
           </Text>
         </Item>
       </Items>
-      <Button label="ВЫЗВАТЬ МАСТЕРА" fullWidth={isMobile} shadow />
+      <FormButton label="ВЫЗВАТЬ МАСТЕРА" fullWidth={isMobile} shadow />
     </Section>
   );
 };
