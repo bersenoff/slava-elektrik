@@ -37,8 +37,9 @@ const StyledButton = styled.button<Omit<Props, "label">>`
   }
 
   @media ${BreakPoint.Mobile} {
-    font-size: 18px;
+    font-size: 16px;
     padding: 10px 12px;
+    height: 46px;
   }
 
   @media ${BreakPoint.Tablet} {

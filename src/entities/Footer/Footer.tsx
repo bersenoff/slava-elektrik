@@ -51,6 +51,12 @@ const Content = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 12px;
+
+  @media ${BreakPoint.Mobile} {
+    & > button {
+      height: 40px;
+    }
+  }
 `;
 
 const InfoContainer = styled.div`

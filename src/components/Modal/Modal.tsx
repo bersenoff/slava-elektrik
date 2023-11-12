@@ -70,6 +70,8 @@ const CloseButton = styled.div`
 `;
 
 const Content = styled.div`
+  display: flex;
+  justify-content: center;
   width: calc(100% - 24px);
 `;
 

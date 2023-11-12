@@ -1,22 +1,28 @@
 import styled from "styled-components";
 import { BreakPoint } from "../../constants/breakpoints";
 
-export default styled.div`
-  background: url("/img/logo.png") no-repeat;
-  background-size: cover;
+const Logo: React.FC = () => (
+  <Container>
+    <img src="/img/logo.png" />
+  </Container>
+);
+
+const Container = styled.div`
+  img {
+    width: 100%;
+  }
 
   @media ${BreakPoint.Mobile} {
-    height: 43px;
-    width: 160px;
+    width: 140px;
   }
 
   @media ${BreakPoint.Tablet} {
-    height: 62px;
     width: 230px;
   }
 
   @media ${BreakPoint.Desktop} {
-    height: 94px;
     width: 350px;
   }
 `;
+
+export default Logo;

@@ -3,7 +3,6 @@ import { BreakPoint } from "../../constants/breakpoints";
 
 export default styled.div`
   margin: 0 auto;
-  min-width: 360px;
   padding: 0 24px;
   width: 1366px;
 
