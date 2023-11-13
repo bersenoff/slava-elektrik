@@ -31,6 +31,7 @@ const Reviews: React.FC = () => {
         <StyledCarousel
           showArrows={false}
           showStatus={false}
+          showThumbs={false}
           width={`${windowWidth}px`}
           dynamicHeight
           infiniteLoop

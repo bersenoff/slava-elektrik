@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled, { CSSProperties, css } from "styled-components";
 
 import StyledH1 from "./components/StyledH1";
 import StyledH2 from "./components/StyledH2";
@@ -24,6 +24,7 @@ type Props = {
   italic?: boolean;
   shadow?: boolean;
   opacity?: number;
+  style?: CSSProperties;
 };
 
 const Text: React.FC<React.PropsWithChildren<Props>> = ({
