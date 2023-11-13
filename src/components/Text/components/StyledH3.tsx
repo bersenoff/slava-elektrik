@@ -5,6 +5,6 @@ export default styled.span`
   font-size: 30px;
 
   @media ${BreakPoint.Mobile} {
-    font-size: 24px;
+    font-size: 22px;
   }
 `;

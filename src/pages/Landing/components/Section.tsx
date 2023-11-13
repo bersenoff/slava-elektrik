@@ -16,7 +16,7 @@ const Section: React.FC<React.PropsWithChildren<Props>> = ({
   <Container {...props}>
     <ResponsiveWrapper>
       <Content>
-        <Text type={TextType.H1} medium>
+        <Text type={TextType.H1} medium center>
           {title}
         </Text>
         {props.children}
