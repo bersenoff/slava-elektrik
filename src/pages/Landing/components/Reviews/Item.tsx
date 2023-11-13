@@ -3,29 +3,34 @@ import styled from "styled-components";
 import Icon, { IconName } from "../../../../components/Icon";
 import Text, { TextType } from "../../../../components/Text";
 import { BreakPoint } from "../../../../constants/breakpoints";
+import useBreakpoints from "../../../../hooks/useBreakpoints";
 
 type Props = {
   name: string;
   text: string;
 };
 
-const Item: React.FC<Props> = ({ name, text }) => (
-  <Container>
-    <UserBlock>
-      <Avatar>
-        <Icon name={IconName.User} />
-      </Avatar>
-      <Text type={TextType.H5} medium>
-        {name}
-      </Text>
-    </UserBlock>
-    <TextBlock>
-      <Text type={TextType.H5} italic>
-        {text}
-      </Text>
-    </TextBlock>
-  </Container>
-);
+const Item: React.FC<Props> = ({ name, text }) => {
+  const { isMobile } = useBreakpoints();
+
+  return (
+    <Container>
+      <UserBlock>
+        <Avatar>
+          <Icon name={IconName.User} size={isMobile ? 32 : 48} />
+        </Avatar>
+        <Text type={TextType.H5} medium>
+          {name}
+        </Text>
+      </UserBlock>
+      <TextBlock>
+        <Text type={TextType.H5} italic>
+          {text}
+        </Text>
+      </TextBlock>
+    </Container>
+  );
+};
 
 const Container = styled.div`
   display: flex;
