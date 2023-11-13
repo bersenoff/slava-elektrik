@@ -57,7 +57,8 @@ const Content = styled.div`
 
   @media ${BreakPoint.Mobile} {
     & > button {
-      height: 40px;
+      font-size: 14px;
+      height: 38px;
     }
   }
 `;
