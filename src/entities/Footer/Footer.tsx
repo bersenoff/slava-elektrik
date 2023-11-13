@@ -11,7 +11,7 @@ import { BreakPoint } from "../../constants/breakpoints";
 import FormButton from "../FormButton";
 
 const Footer: React.FC = () => {
-  const { isTablet, isDesktop } = useBreakpoints();
+  const { isMobile, isTablet, isDesktop } = useBreakpoints();
 
   return (
     <StyledHeader>
@@ -25,7 +25,10 @@ const Footer: React.FC = () => {
             </InfoContainer>
           )}
           {isTablet && <Phone />}
-          <FormButton label="ЗАКАЗАТЬ ЗВОНОК" shadow />
+          <FormButton
+            label={isMobile ? "ЗАКАЗАТЬ" : "ЗАКАЗАТЬ ЗВОНОК"}
+            shadow
+          />
         </Content>
       </ResponsiveWrapper>
     </StyledHeader>

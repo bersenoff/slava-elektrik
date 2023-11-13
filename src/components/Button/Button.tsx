@@ -24,6 +24,9 @@ const StyledButton = styled.button<Omit<Props, "label">>`
     shadow ? `0px 4px 5px 0px rgba(0, 0, 0, 0.25)` : `none`};
   color: white;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: "Fira Sans";
   font-weight: bold;
   font-size: 30px;
@@ -38,7 +41,7 @@ const StyledButton = styled.button<Omit<Props, "label">>`
 
   @media ${BreakPoint.Mobile} {
     font-size: 16px;
-    padding: 10px 12px;
+    padding: 0 12px;
     height: 46px;
   }
 
