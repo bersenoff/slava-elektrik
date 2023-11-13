@@ -25,7 +25,10 @@ const Header: React.FC = () => {
             </InfoContainer>
           )}
           {isTablet && <Phone />}
-          <FormButton label="ЗАКАЗАТЬ ЗВОНОК" shadow />
+          <FormButton
+            label={isMobile ? "ЗАКАЗАТЬ" : "ЗАКАЗАТЬ ЗВОНОК"}
+            shadow
+          />
           {isMobile && (
             <InfoContainer>
               <Phone />

@@ -37,7 +37,7 @@ const Container = styled.div`
   @media ${BreakPoint.Mobile} {
     gap: 12px;
     padding: 16px;
-    height: 150px;
+    height: auto;
     width: 100%;
   }
 

@@ -19,7 +19,7 @@ const Item: React.FC<Props> = ({ name, text }) => {
         <Avatar>
           <Icon name={IconName.User} size={isMobile ? 32 : 48} />
         </Avatar>
-        <Text type={TextType.H5} medium>
+        <Text type={TextType.H5} medium center>
           {name}
         </Text>
       </UserBlock>
