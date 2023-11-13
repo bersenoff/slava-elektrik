@@ -6,26 +6,36 @@ import { BreakPoint } from "../../../constants/breakpoints";
 
 type Props = {
   title: string;
+  isResponsive?: boolean;
   bgColor: "gray" | "white";
 };
 
 const Section: React.FC<React.PropsWithChildren<Props>> = ({
   title,
+  isResponsive = true,
   ...props
-}) => (
-  <Container {...props}>
-    <ResponsiveWrapper>
-      <Content>
-        <Text type={TextType.H1} medium center>
-          {title}
-        </Text>
-        {props.children}
-      </Content>
-    </ResponsiveWrapper>
-  </Container>
-);
+}) => {
+  const content = (
+    <Content>
+      <Text type={TextType.H1} medium center>
+        {title}
+      </Text>
+      {props.children}
+    </Content>
+  );
 
-const Container = styled.div<Omit<Props, "title">>`
+  return (
+    <Container {...props}>
+      {isResponsive ? (
+        <ResponsiveWrapper>{content}</ResponsiveWrapper>
+      ) : (
+        content
+      )}
+    </Container>
+  );
+};
+
+const Container = styled.div<Omit<Props, "title" | "isResponsive">>`
   padding: 96px 0;
 
   ${({ bgColor }) => {

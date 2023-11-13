@@ -6,7 +6,9 @@ const useBreakpoints = (): {
   isTabletHorizontal: boolean;
   isTablet: boolean;
   isDesktop: boolean;
+  windowWidth: number;
 } => {
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isTabletVertical, setIsTabletVertical] = useState<boolean>(false);
   const [isTabletHorizontal, setIsTabletHorizontal] = useState<boolean>(false);
@@ -22,6 +24,7 @@ const useBreakpoints = (): {
       setIsTabletHorizontal(width >= 1024 && width <= 1365);
       setIsTablet(width >= 768 && width <= 1365);
       setIsDesktop(width >= 1366);
+      setWindowWidth(width);
     }
 
     handleResize();
@@ -31,7 +34,7 @@ const useBreakpoints = (): {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  return { isMobile, isTabletVertical, isTabletHorizontal, isTablet, isDesktop };
+  return { isMobile, isTabletVertical, isTabletHorizontal, isTablet, isDesktop, windowWidth };
 };
 
 export default useBreakpoints;

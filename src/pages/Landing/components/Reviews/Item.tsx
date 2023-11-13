@@ -37,12 +37,14 @@ const Container = styled.div`
   flex-direction: row;
   align-items: flex-start;
   gap: 40px;
-  width: 100%;
 
   @media ${BreakPoint.Mobile} {
     flex-direction: column;
     align-items: center;
     gap: 24px;
+    margin: 0 auto;
+    padding: 5px 0;
+    width: calc(100% - 24px);
   }
 
   @media ${BreakPoint.Desktop} {
@@ -96,7 +98,6 @@ const TextBlock = styled.div`
   padding: 24px;
   text-align: left;
   position: relative;
-  width: 100%;
 
   @media ${BreakPoint.Mobile} {
     padding: 12px;
