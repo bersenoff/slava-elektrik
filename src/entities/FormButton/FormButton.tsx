@@ -14,7 +14,7 @@ const FormButton: React.FC<Props> = (props) => {
     <>
       <Button {...props} onClick={openModal} />
       <Modal isShow={isModalShow} onClose={closeModal}>
-        <Form />
+        <Form onSuccess={closeModal} />
       </Modal>
     </>
   );

@@ -10,6 +10,7 @@ import PhoneInput from "../../components/PhoneInput";
 
 type Props = {
   dark?: boolean;
+  onSuccess?: () => void;
 };
 
 const Form: React.FC<Props> = (props) => {
@@ -112,6 +113,10 @@ const Form: React.FC<Props> = (props) => {
             hideProgressBar: true,
           }
         );
+
+        if (props.onSuccess) {
+          props.onSuccess();
+        }
       })
       .catch(() => {
         setUX((s) => ({
@@ -146,6 +151,7 @@ const Form: React.FC<Props> = (props) => {
         type="text"
         placeholder="Имя"
         name="name"
+        value={ux.fields.name}
         onChange={handleChangeInput}
         white={props.dark}
         fullWidth
@@ -153,6 +159,7 @@ const Form: React.FC<Props> = (props) => {
       <PhoneInput
         placeholder="Телефон"
         name="phone"
+        value={ux.fields.phone}
         onChange={handleChangeInput}
         white={props.dark}
         fullWidth
