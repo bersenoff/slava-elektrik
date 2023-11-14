@@ -63,6 +63,20 @@ const Form: React.FC<Props> = (props) => {
       return;
     }
 
+    const securityItemName = "lastApplicationTime";
+    const lastApplicationTime = localStorage.getItem(securityItemName);
+
+    if (
+      lastApplicationTime &&
+      Number(lastApplicationTime) - Date.now() < 360000
+    ) {
+      toast("Вы уже отправили заявку, мы свяжемся с Вами в ближайшее время", {
+        type: "error",
+        hideProgressBar: true,
+      });
+      return;
+    }
+
     setUX((s) => ({
       ...s,
       loading: true,
@@ -80,6 +94,8 @@ const Form: React.FC<Props> = (props) => {
       data: formData,
     })
       .then(() => {
+        localStorage.setItem(securityItemName, String(Date.now()));
+
         setUX((s) => ({
           ...s,
           loading: false,
