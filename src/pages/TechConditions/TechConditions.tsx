@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import Discount from "../Landing/components/Discount";
 import HowItWorks from "../Landing/components/HowItWorks";
@@ -12,8 +13,20 @@ import useBreakpoints from "../../hooks/useBreakpoints";
 const TechConditions: React.FC = () => {
   const { isMobile } = useBreakpoints();
 
+  const title = "Выполнение техусловий, монтаж заземления";
+  const description =
+    "Выполнение технических условий. Профессиональный монтаж заземления для вашего объекта от опытных специалистов.";
+
   return (
     <>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta
+          name="keywords"
+          content="технологическое присоединение, технологическое присоединение к электрическим сетям, подключение электричества, подключение электричества к дому, ввод электричества в дом, установка бетонных опор, монтаж СИП, Подключение к электросети, Подключение электроэнергии, Заземление, выполнить контур заземления"
+        />
+      </Helmet>
       <Section bgColor="gray">
         <Content>
           <ImageContainer>
@@ -22,12 +35,9 @@ const TechConditions: React.FC = () => {
           <DescriptionContainer>
             <Heading>
               <Text type={TextType.H3} center medium>
-                Выполнение техусловий, монтаж заземления
+                {title}
               </Text>
-              <Text type={TextType.H4}>
-                Выполнение технических условий. Профессиональный монтаж
-                заземления для вашего объекта от опытных специалистов.{" "}
-              </Text>
+              <Text type={TextType.H4}>{description}</Text>
             </Heading>
             <Text type={TextType.H4} medium center={isMobile}>
               Виды работ:

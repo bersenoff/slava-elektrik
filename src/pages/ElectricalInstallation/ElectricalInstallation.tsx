@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import Discount from "../Landing/components/Discount";
 import HowItWorks from "../Landing/components/HowItWorks";
@@ -12,8 +13,20 @@ import useBreakpoints from "../../hooks/useBreakpoints";
 const TechConditions: React.FC = () => {
   const { isMobile } = useBreakpoints();
 
+  const title = "Монтаж электрики под ключ в Иркутске";
+  const description =
+    "Замена и монтаж проводки в квартирах домах и коммерческих помещениях. Электромонтаж в новостройках и частных домах. Стаж свыше 15 лет.";
+
   return (
     <>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta
+          name="keywords"
+          content="Монтаж электропроводки, Монтаж проводки, Замена электропроводки, Замена электропроводки в квартире, Монтаж проводки в доме, Электромонтаж в квартире, Монтаж проводки в деревянном доме, Монтаж проводки в квартире, Стоимость замены электропроводки, Монтаж скрытой проводки, Электромонтаж проводки, Монтаж проводки в частном доме, Электромонтаж в частном доме, Монтаж кабеля, Замена электропроводки в панельном доме, Замена электропроводки в двухкомнатной квартире, Замена электропроводки в однокомнатной, Электромонтаж в квартире, Замена электропроводки в хрущевке"
+        />
+      </Helmet>
       <Section bgColor="gray">
         <Content>
           <ImageContainer>
@@ -22,13 +35,9 @@ const TechConditions: React.FC = () => {
           <DescriptionContainer>
             <Heading>
               <Text type={TextType.H3} center medium>
-                Монтаж электрики под ключ в Иркутске
+                {title}
               </Text>
-              <Text type={TextType.H4}>
-                Замена и монтаж проводки в квартирах домах и коммерческих
-                помещениях. Электромонтаж в новостройках и частных домах. Стаж
-                свыше 15 лет.
-              </Text>
+              <Text type={TextType.H4}>{description}</Text>
             </Heading>
             <Text type={TextType.H4} medium center={isMobile}>
               Виды работ:

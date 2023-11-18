@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import Discount from "../Landing/components/Discount";
 import HowItWorks from "../Landing/components/HowItWorks";
@@ -12,8 +13,20 @@ import useBreakpoints from "../../hooks/useBreakpoints";
 const TechConditions: React.FC = () => {
   const { isMobile } = useBreakpoints();
 
+  const title = "Услуги электрика с выездом в Иркутске";
+  const description =
+    "Профессиональные услуги электрика с выездом на дом. Приеду в течении 1 часа. Замена розеток, выключателей, светильников, автоматов.";
+
   return (
     <>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta
+          name="keywords"
+          content="электрик, вызов электрика на дом, услуги электрика, услуги электрика Иркутск, электрик на дом Иркутск, электрик цена, электрик недорого, ремонт электрики, вызвать электрика, ремонт электрики, частный электрик, замена розеток, монтаж люстр, замена автоматов, ремонт проводки"
+        />
+      </Helmet>
       <Section bgColor="gray">
         <Content>
           <ImageContainer>
@@ -22,13 +35,9 @@ const TechConditions: React.FC = () => {
           <DescriptionContainer>
             <Heading>
               <Text type={TextType.H3} center medium>
-                Услуги электрика с выездом в Иркутске
+                {title}
               </Text>
-              <Text type={TextType.H4}>
-                Профессиональные услуги электрика с выездом на дом. Приеду в
-                течении 1 часа. Замена розеток, выключателей, светильников,
-                автоматов.
-              </Text>
+              <Text type={TextType.H4}>{description}</Text>
             </Heading>
             <Text type={TextType.H4} medium center={isMobile}>
               Виды работ:
