@@ -5,7 +5,7 @@ import ResponsiveWrapper from "../../../components/ResponsiveWrapper";
 import { BreakPoint } from "../../../constants/breakpoints";
 
 type Props = {
-  title: string;
+  title?: string;
   isResponsive?: boolean;
   bgColor: "gray" | "white";
 };
@@ -17,9 +17,11 @@ const Section: React.FC<React.PropsWithChildren<Props>> = ({
 }) => {
   const content = (
     <Content>
-      <Text type={TextType.H1} medium center>
-        {title}
-      </Text>
+      {title && (
+        <Text type={TextType.H1} medium center>
+          {title}
+        </Text>
+      )}
       {props.children}
     </Content>
   );
