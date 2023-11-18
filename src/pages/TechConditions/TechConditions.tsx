@@ -30,7 +30,7 @@ const TechConditions: React.FC = () => {
       <Section bgColor="gray">
         <Content>
           <ImageContainer>
-            <img src="/img/services/2.png" />
+            <img src="/img/services/1.png" />
           </ImageContainer>
           <DescriptionContainer>
             <Heading>
