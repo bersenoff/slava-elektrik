@@ -7,4 +7,8 @@ export default styled.span`
   @media ${BreakPoint.Mobile} {
     font-size: 22px;
   }
+
+  @media ${BreakPoint.Tablet} {
+    font-size: 26px;
+  }
 `;

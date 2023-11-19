@@ -7,11 +7,9 @@ import Reviews from "../Landing/components/Reviews";
 import Section from "../Landing/components/Section";
 import Text, { TextType } from "../../components/Text";
 import { BreakPoint } from "../../constants/breakpoints";
-import useBreakpoints from "../../hooks/useBreakpoints";
+import ResponsiveWrapper from "../../components/ResponsiveWrapper";
 
 const TechConditions: React.FC = () => {
-  const { isMobile } = useBreakpoints();
-
   const title = "Выполнение техусловий, монтаж заземления";
   const description =
     "Выполнение технических условий. Профессиональный монтаж заземления для вашего объекта от опытных специалистов.";
@@ -26,75 +24,63 @@ const TechConditions: React.FC = () => {
           content="технологическое присоединение, технологическое присоединение к электрическим сетям, подключение электричества, подключение электричества к дому, ввод электричества в дом, установка бетонных опор, монтаж СИП, Подключение к электросети, Подключение электроэнергии, Заземление, выполнить контур заземления"
         />
       </Helmet>
-      <Section bgColor="gray">
+      <MainSection>
         <Content>
-          <ImageContainer>
-            <img src="/img/services/1.png" />
-          </ImageContainer>
-          <DescriptionContainer>
-            <Heading>
-              <Text type={TextType.H3} center medium>
+          <ResponsiveWrapper>
+            <InfoWrapper>
+              <Text type={TextType.H2} white shadow center medium>
                 {title}
               </Text>
-              <Text type={TextType.H4}>{description}</Text>
-            </Heading>
-            <Text type={TextType.H3} center>
-              Виды работ
-            </Text>
-            <ListContainer>
-              <ListItem>
-                <ListItemImage>
-                  <img src="/img/tech_conditions/sip.jpg" />
-                </ListItemImage>
-                <ListItemDescription>
-                  <Text type={isMobile ? TextType.H4 : TextType.H5} center>
-                    Монтаж, замена СИПа
-                  </Text>
-                </ListItemDescription>
-              </ListItem>
-              <ListItem>
-                <ListItemImage>
-                  <img src="/img/tech_conditions/vru.jpg" />
-                </ListItemImage>
-                <ListItemDescription>
-                  <Text type={isMobile ? TextType.H4 : TextType.H5} center>
-                    Сборка и установка щитов ВРУ
-                  </Text>
-                </ListItemDescription>
-              </ListItem>
-              <ListItem>
-                <ListItemImage>
-                  <img src="/img/tech_conditions/lap.jpg" />
-                </ListItemImage>
-                <ListItemDescription>
-                  <Text type={isMobile ? TextType.H4 : TextType.H5} center>
-                    Монтаж опоры ЛЭП
-                  </Text>
-                </ListItemDescription>
-              </ListItem>
-              <ListItem>
-                <ListItemImage>
-                  <img src="/img/tech_conditions/trubostoikost.jpg" />
-                </ListItemImage>
-                <ListItemDescription>
-                  <Text type={isMobile ? TextType.H4 : TextType.H5} center>
-                    Установка трубостойки
-                  </Text>
-                </ListItemDescription>
-              </ListItem>
-              <ListItem>
-                <ListItemImage>
-                  <img src="/img/tech_conditions/grounding.jpg" />
-                </ListItemImage>
-                <ListItemDescription>
-                  <Text type={isMobile ? TextType.H4 : TextType.H5} center>
-                    Монтаж заземления
-                  </Text>
-                </ListItemDescription>
-              </ListItem>
-            </ListContainer>
-          </DescriptionContainer>
+              <Text type={TextType.H3} white shadow center opacity={0.8}>
+                {description}
+              </Text>
+            </InfoWrapper>
+          </ResponsiveWrapper>
         </Content>
+      </MainSection>
+      <Section title="ВИДЫ РАБОТ" bgColor="gray">
+        <ListContainer>
+          <ListItem>
+            <ListItemImage>
+              <img src="/img/tech_conditions/sip.jpg" />
+            </ListItemImage>
+            <ListItemDescription>
+              <Text type={TextType.H3}>Монтаж, замена СИПа</Text>
+            </ListItemDescription>
+          </ListItem>
+          <ListItem>
+            <ListItemImage>
+              <img src="/img/tech_conditions/vru.jpg" />
+            </ListItemImage>
+            <ListItemDescription>
+              <Text type={TextType.H3}>Сборка и установка щитов ВРУ</Text>
+            </ListItemDescription>
+          </ListItem>
+          <ListItem>
+            <ListItemImage>
+              <img src="/img/tech_conditions/lap.jpg" />
+            </ListItemImage>
+            <ListItemDescription>
+              <Text type={TextType.H3}>Монтаж опоры ЛЭП</Text>
+            </ListItemDescription>
+          </ListItem>
+          <ListItem>
+            <ListItemImage>
+              <img src="/img/tech_conditions/trubostoika.jpg" />
+            </ListItemImage>
+            <ListItemDescription>
+              <Text type={TextType.H3}>Установка трубостойки</Text>
+            </ListItemDescription>
+          </ListItem>
+          <ListItem>
+            <ListItemImage>
+              <img src="/img/tech_conditions/grounding.jpg" />
+            </ListItemImage>
+            <ListItemDescription>
+              <Text type={TextType.H3}>Монтаж заземления</Text>
+            </ListItemDescription>
+          </ListItem>
+        </ListContainer>
       </Section>
       <Discount />
       <HowItWorks />
@@ -103,69 +89,49 @@ const TechConditions: React.FC = () => {
   );
 };
 
+const MainSection = styled.div`
+  background: #f7f8f9 url("/img/services/1.png") no-repeat;
+  background-size: 100% 140%;
+  box-shadow: inset 0 10px 10px rgba(255, 255, 255, 1);
+  padding-top: 47.5%;
+  position: relative;
+  width: 100%;
+
+  @media ${BreakPoint.Mobile} {
+    padding: 12px 0;
+  }
+`;
+
 const Content = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 64px;
-
-  @media ${BreakPoint.TabletHorizontal} {
-    gap: 32px;
-  }
-
-  @media ${BreakPoint.TabletVertical} {
-    align-items: center;
-    flex-direction: column;
-    gap: 32px;
-  }
+  align-items: center;
+  height: 100%;
+  width: 100%;
 
   @media ${BreakPoint.Mobile} {
-    flex-direction: column;
-    gap: 16px;
+    position: static;
   }
 `;
 
-const ImageContainer = styled.div`
-  width: 40%;
-
-  img {
-    border-radius: 10px;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
-    width: 100%;
-  }
-
-  @media ${BreakPoint.TabletVertical} {
-    width: 60%;
-  }
-
-  @media ${BreakPoint.Mobile} {
-    width: 100%;
-  }
-`;
-
-const DescriptionContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  width: 60%;
-
-  @media ${BreakPoint.TabletVertical} {
-    width: 100%;
-  }
-
-  @media ${BreakPoint.Mobile} {
-    gap: 16px;
-    width: 100%;
-  }
-`;
-
-const Heading = styled.div`
+const InfoWrapper = styled.div`
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding: 48px 24px;
+  margin: 0 auto;
+  width: 55%;
 
   @media ${BreakPoint.Mobile} {
-    gap: 12px;
+    width: 100%;
+  }
+
+  @media ${BreakPoint.TabletVertical} {
+    width: 100%;
   }
 `;
 
@@ -173,6 +139,7 @@ const ListContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 24px;
+  width: 100%;
 
   @media ${BreakPoint.Mobile} {
     grid-template-columns: 1fr;
@@ -189,13 +156,14 @@ const ListItem = styled.div`
 
   @media ${BreakPoint.Desktop} {
     &:hover {
-      scale: 1.1;
+      scale: 1.05;
     }
   }
 
   @media ${BreakPoint.Mobile} {
     margin: 0 auto;
-    width: 300px;
+    max-width: 300px;
+    width: 100%;
   }
 `;
 
