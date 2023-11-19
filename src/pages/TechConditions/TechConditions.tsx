@@ -66,7 +66,7 @@ const TechConditions: React.FC = () => {
           </ListItem>
           <ListItem>
             <ListItemImage>
-              <img src="/img/tech_conditions/trubostoika.jpg" />
+              <img src="/img/tech_conditions/trubostoik.jpg" />
             </ListItemImage>
             <ListItemDescription>
               <Text type={TextType.H3}>Установка трубостойки</Text>
