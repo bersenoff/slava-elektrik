@@ -120,7 +120,7 @@ const Item = styled.div`
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
   padding: 10px 10px 24px;
   width: 400px;
 

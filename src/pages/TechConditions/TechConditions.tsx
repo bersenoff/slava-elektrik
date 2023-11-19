@@ -6,7 +6,6 @@ import HowItWorks from "../Landing/components/HowItWorks";
 import Reviews from "../Landing/components/Reviews";
 import Section from "../Landing/components/Section";
 import Text, { TextType } from "../../components/Text";
-import Icon, { IconName } from "../../components/Icon";
 import { BreakPoint } from "../../constants/breakpoints";
 import useBreakpoints from "../../hooks/useBreakpoints";
 
@@ -39,29 +38,59 @@ const TechConditions: React.FC = () => {
               </Text>
               <Text type={TextType.H4}>{description}</Text>
             </Heading>
-            <Text type={TextType.H4} medium center={isMobile}>
-              Виды работ:
+            <Text type={TextType.H3} center>
+              Виды работ
             </Text>
             <ListContainer>
               <ListItem>
-                <Icon name={IconName.Check} />
-                <Text type={TextType.H5}>Монтаж, замена СИПа</Text>
+                <ListItemImage>
+                  <img src="/img/tech_conditions/sip.jpg" />
+                </ListItemImage>
+                <ListItemDescription>
+                  <Text type={isMobile ? TextType.H4 : TextType.H5} center>
+                    Монтаж, замена СИПа
+                  </Text>
+                </ListItemDescription>
               </ListItem>
               <ListItem>
-                <Icon name={IconName.Check} />
-                <Text type={TextType.H5}>Сборка и установка щитов ВРУ</Text>
+                <ListItemImage>
+                  <img src="/img/tech_conditions/vru.jpg" />
+                </ListItemImage>
+                <ListItemDescription>
+                  <Text type={isMobile ? TextType.H4 : TextType.H5} center>
+                    Сборка и установка щитов ВРУ
+                  </Text>
+                </ListItemDescription>
               </ListItem>
               <ListItem>
-                <Icon name={IconName.Check} />
-                <Text type={TextType.H5}>Монтаж опоры ЛЭП</Text>
+                <ListItemImage>
+                  <img src="/img/tech_conditions/lap.jpg" />
+                </ListItemImage>
+                <ListItemDescription>
+                  <Text type={isMobile ? TextType.H4 : TextType.H5} center>
+                    Монтаж опоры ЛЭП
+                  </Text>
+                </ListItemDescription>
               </ListItem>
               <ListItem>
-                <Icon name={IconName.Check} />
-                <Text type={TextType.H5}>Установка трубостойки</Text>
+                <ListItemImage>
+                  <img src="/img/tech_conditions/trubostoikost.jpg" />
+                </ListItemImage>
+                <ListItemDescription>
+                  <Text type={isMobile ? TextType.H4 : TextType.H5} center>
+                    Установка трубостойки
+                  </Text>
+                </ListItemDescription>
               </ListItem>
               <ListItem>
-                <Icon name={IconName.Check} />
-                <Text type={TextType.H5}>Монтаж заземления</Text>
+                <ListItemImage>
+                  <img src="/img/tech_conditions/grounding.jpg" />
+                </ListItemImage>
+                <ListItemDescription>
+                  <Text type={isMobile ? TextType.H4 : TextType.H5} center>
+                    Монтаж заземления
+                  </Text>
+                </ListItemDescription>
               </ListItem>
             </ListContainer>
           </DescriptionContainer>
@@ -77,7 +106,7 @@ const TechConditions: React.FC = () => {
 const Content = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   gap: 64px;
 
   @media ${BreakPoint.TabletHorizontal} {
@@ -85,6 +114,7 @@ const Content = styled.div`
   }
 
   @media ${BreakPoint.TabletVertical} {
+    align-items: center;
     flex-direction: column;
     gap: 32px;
   }
@@ -140,32 +170,56 @@ const Heading = styled.div`
 `;
 
 const ListContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 24px;
 
   @media ${BreakPoint.Mobile} {
-    flex-direction: column;
-    gap: 12px;
+    grid-template-columns: 1fr;
   }
 `;
 
 const ListItem = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 4px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 10px 10px 24px;
+  transition: all 0.3s ease;
 
-  svg {
-    color: green;
-    height: 30px;
-    width: 30px;
-
-    @media ${BreakPoint.Mobile} {
-      height: 20px;
-      width: 20px;
+  @media ${BreakPoint.Desktop} {
+    &:hover {
+      scale: 1.1;
     }
   }
+
+  @media ${BreakPoint.Mobile} {
+    margin: 0 auto;
+    width: 300px;
+  }
+`;
+
+const ListItemImage = styled.div`
+  position: relative;
+  padding-top: 75%;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+`;
+
+const ListItemDescription = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid rgb(0, 0, 0, 0.25);
+  padding-top: 16px;
+  margin-top: 16px;
 `;
 
 export default TechConditions;
