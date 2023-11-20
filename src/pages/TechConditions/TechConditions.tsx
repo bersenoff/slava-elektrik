@@ -149,7 +149,7 @@ const InfoWrapper = styled.div`
   margin-bottom: 64px;
   width: 100%;
 
-  button {
+  > button {
     margin: 0 auto;
     width: 400px;
   }
