@@ -3,32 +3,34 @@ import styled from "styled-components";
 
 import useBreakpoints from "../../hooks/useBreakpoints";
 import Logo from "../../components/Logo";
-import MainLabel from "../../components/MainLabel";
 import Phone from "../../components/Phone";
 import ResponsiveWrapper from "../../components/ResponsiveWrapper";
 
 import { BreakPoint } from "../../constants/breakpoints";
 import FormButton from "../FormButton";
+import Icon, { IconName } from "../../components/Icon";
 
 const Footer: React.FC = () => {
-  const { isMobile, isTablet, isDesktop } = useBreakpoints();
+  const { isMobile, isDesktop } = useBreakpoints();
 
   return (
     <StyledHeader>
       <ResponsiveWrapper>
         <Content>
           <Logo />
-          {isDesktop && (
-            <InfoContainer>
+          {isDesktop ? (
+            <>
               <Phone />
-              <MainLabel />
-            </InfoContainer>
+              <FormButton
+                label={isMobile ? "ЗАКАЗАТЬ" : "ЗАКАЗАТЬ ЗВОНОК"}
+                shadow
+              />
+            </>
+          ) : (
+            <a href="https://wa.me/79041575474" target="_blank">
+              <StyledIcon name={IconName.WhatsApp} />
+            </a>
           )}
-          {isTablet && <Phone />}
-          <FormButton
-            label={isMobile ? "ЗАКАЗАТЬ" : "ЗАКАЗАТЬ ЗВОНОК"}
-            shadow
-          />
         </Content>
       </ResponsiveWrapper>
     </StyledHeader>
@@ -63,14 +65,17 @@ const Content = styled.div`
   }
 `;
 
-const InfoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+const StyledIcon = styled(Icon)`
+  svg {
+    @media ${BreakPoint.Mobile} {
+      height: 40px;
+      width: 40px;
+    }
 
-  @media ${BreakPoint.Desktop} {
-    width: auto;
+    @media ${BreakPoint.Tablet} {
+      height: 60px;
+      width: 60px;
+    }
   }
 `;
 

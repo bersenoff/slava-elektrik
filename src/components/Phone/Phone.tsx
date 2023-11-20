@@ -6,18 +6,25 @@ import Text, { TextType } from "../Text";
 
 const Phone: React.FC = () => (
   <Container>
-    <Icon name={IconName.Phone} />
-    <Text type={TextType.H2} bold>
-      8 (3952) 675-474
-    </Text>
+    <a href="tel:+73952675474">
+      <Icon name={IconName.Phone} />
+      <Text type={TextType.H2} bold>
+        8 (3952) 675-474
+      </Text>
+    </a>
   </Container>
 );
 
 const Container = styled.div`
   font-size: 36px;
   font-weight: bold;
-  display: flex;
-  gap: 10px;
+
+  a {
+    color: #1a1b1c;
+    display: flex;
+    gap: 10px;
+    text-decoration: none;
+  }
 
   svg {
     height: 36px;

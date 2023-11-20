@@ -5,12 +5,14 @@ import Check from "./icons/Check";
 import Close from "./icons/Close";
 import Phone from "./icons/Phone";
 import User from "./icons/User";
+import WhatsApp from "./icons/WhatsApp";
 
 export enum IconName {
   Check = "Check",
   Close = "Close",
   Phone = "Phone",
   User = "User",
+  WhatsApp = "WhatsApp",
 }
 
 type Props = {
@@ -39,6 +41,8 @@ const Icon: React.FC<Props> = ({ name, ...props }) => {
         return <Phone />;
       case IconName.User:
         return <User />;
+      case IconName.WhatsApp:
+        return <WhatsApp />;
       default:
         return null;
     }

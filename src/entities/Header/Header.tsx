@@ -3,42 +3,38 @@ import styled from "styled-components";
 
 import useBreakpoints from "../../hooks/useBreakpoints";
 import Logo from "../../components/Logo";
-import MainLabel from "../../components/MainLabel";
 import Phone from "../../components/Phone";
 import ResponsiveWrapper from "../../components/ResponsiveWrapper";
 
 import { BreakPoint } from "../../constants/breakpoints";
 import FormButton from "../FormButton";
+import Icon, { IconName } from "../../components/Icon";
 
 const Header: React.FC = () => {
-  const { isMobile, isTablet, isDesktop } = useBreakpoints();
+  const { isMobile, isDesktop } = useBreakpoints();
 
   return (
     <StyledHeader>
       <ResponsiveWrapper>
         <Content>
           <Logo />
-          {isDesktop && (
-            <InfoContainer>
+          {isDesktop ? (
+            <>
               <Phone />
-              <MainLabel />
-            </InfoContainer>
-          )}
-          {isTablet && <Phone />}
-          <FormButton
-            label={isMobile ? "ЗАКАЗАТЬ" : "ЗАКАЗАТЬ ЗВОНОК"}
-            shadow
-          />
-          {isMobile && (
-            <InfoContainer>
-              <Phone />
-              <MainLabel />
-            </InfoContainer>
-          )}
-          {isTablet && (
-            <InfoContainer>
-              <MainLabel />
-            </InfoContainer>
+              <FormButton
+                label={isMobile ? "ЗАКАЗАТЬ" : "ЗАКАЗАТЬ ЗВОНОК"}
+                shadow
+              />
+            </>
+          ) : (
+            <>
+              <a href="https://wa.me/79041575474" target="_blank">
+                <StyledIcon name={IconName.WhatsApp} />
+              </a>
+              <InfoContainer>
+                <Phone />
+              </InfoContainer>
+            </>
           )}
         </Content>
       </ResponsiveWrapper>
@@ -79,9 +75,19 @@ const InfoContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+`;
 
-  @media ${BreakPoint.Desktop} {
-    width: auto;
+const StyledIcon = styled(Icon)`
+  svg {
+    @media ${BreakPoint.Mobile} {
+      height: 40px;
+      width: 40px;
+    }
+
+    @media ${BreakPoint.Tablet} {
+      height: 60px;
+      width: 60px;
+    }
   }
 `;
 

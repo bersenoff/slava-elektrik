@@ -8,8 +8,11 @@ import Section from "../Landing/components/Section";
 import Text, { TextType } from "../../components/Text";
 import { BreakPoint } from "../../constants/breakpoints";
 import ResponsiveWrapper from "../../components/ResponsiveWrapper";
+import useBreakpoints from "../../hooks/useBreakpoints";
+import FormButton from "../../entities/FormButton";
 
 const TechConditions: React.FC = () => {
+  const { isDesktop, isMobile } = useBreakpoints();
   const title = "Выполнение техусловий, монтаж заземления";
   const description =
     "Выполнение технических условий. Профессиональный монтаж заземления для вашего объекта от опытных специалистов.";
@@ -25,19 +28,31 @@ const TechConditions: React.FC = () => {
         />
       </Helmet>
       <MainSection>
-        <Content>
-          <ResponsiveWrapper>
-            <InfoWrapper>
-              <Text type={TextType.H2} white shadow center medium>
-                {title}
-              </Text>
-              <Text type={TextType.H3} white shadow center opacity={0.8}>
-                {description}
-              </Text>
-            </InfoWrapper>
-          </ResponsiveWrapper>
-        </Content>
+        {isDesktop && (
+          <Content>
+            <ResponsiveWrapper>
+              <InfoWrapper>
+                <Text type={TextType.H2} medium white shadow center>
+                  {title}
+                </Text>
+                <Text type={TextType.H3} opacity={0.8} white shadow>
+                  {description}
+                </Text>
+                <FormButton label="ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ" />
+              </InfoWrapper>
+            </ResponsiveWrapper>
+          </Content>
+        )}
       </MainSection>
+      {!isDesktop && (
+        <Section bgColor="white">
+          <Text type={TextType.H3} medium center>
+            {title}
+          </Text>
+          <Text type={TextType.H4}>{description}</Text>
+          <FormButton label="ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ" fullWidth={isMobile} />
+        </Section>
+      )}
       <Section title="ВИДЫ РАБОТ" bgColor="gray">
         <ListContainer>
           <ListItem>
@@ -97,8 +112,16 @@ const MainSection = styled.div`
   position: relative;
   width: 100%;
 
+  @media ${BreakPoint.Desktop} {
+    background-position: 0 -150px;
+  }
+
+  @media ${BreakPoint.Tablet} {
+    background-position: 0 -100px;
+  }
+
   @media ${BreakPoint.Mobile} {
-    padding: 12px 0;
+    background-position: 0 -50px;
   }
 `;
 
@@ -107,7 +130,7 @@ const Content = styled.div`
   top: 0;
   left: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   height: 100%;
   width: 100%;
 
@@ -117,21 +140,18 @@ const Content = styled.div`
 `;
 
 const InfoWrapper = styled.div`
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 48px 24px;
-  margin: 0 auto;
-  width: 55%;
+  padding: 32px 24px;
+  margin-bottom: 64px;
+  width: 100%;
 
-  @media ${BreakPoint.Mobile} {
-    width: 100%;
-  }
-
-  @media ${BreakPoint.TabletVertical} {
-    width: 100%;
+  button {
+    margin: 0 auto;
+    width: 400px;
   }
 `;
 
