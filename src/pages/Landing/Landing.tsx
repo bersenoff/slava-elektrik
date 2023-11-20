@@ -12,19 +12,21 @@ import FormButton from "../../entities/FormButton";
 import useBreakpoints from "../../hooks/useBreakpoints";
 
 const Landing: React.FC = () => {
-  const { isMobile } = useBreakpoints();
+  const { isMobile, isDesktop } = useBreakpoints();
 
   return (
     <>
       <MainSection />
-      <Section bgColor="white">
-        <Text type={TextType.H4} center>
-          Услуги высококвалифицированного электрика.
-          <br />
-          Круглосуточно! Вызов от 500 рублей!
-        </Text>
-        <FormButton label="ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ" fullWidth={isMobile} />
-      </Section>
+      {!isDesktop && (
+        <Section bgColor="white">
+          <Text type={TextType.H4} center>
+            Услуги высококвалифицированного электрика.
+            <br />
+            Круглосуточно! Вызов от 500 рублей!
+          </Text>
+          <FormButton label="ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ" fullWidth={isMobile} />
+        </Section>
+      )}
       <Advantages />
       <Discount />
       <Services />
