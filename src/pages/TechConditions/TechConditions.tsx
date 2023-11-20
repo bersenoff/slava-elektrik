@@ -10,6 +10,7 @@ import { BreakPoint } from "../../constants/breakpoints";
 import ResponsiveWrapper from "../../components/ResponsiveWrapper";
 import useBreakpoints from "../../hooks/useBreakpoints";
 import FormButton from "../../entities/FormButton";
+import Form from "../../entities/Form";
 
 const TechConditions: React.FC = () => {
   const { isDesktop, isMobile } = useBreakpoints();
@@ -31,15 +32,17 @@ const TechConditions: React.FC = () => {
         {isDesktop && (
           <Content>
             <ResponsiveWrapper>
-              <InfoWrapper>
-                <Text type={TextType.H2} medium white shadow center>
-                  {title}
-                </Text>
-                <Text type={TextType.H3} opacity={0.8} white shadow>
-                  {description}
-                </Text>
-                <FormButton label="ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ" />
-              </InfoWrapper>
+              <Form
+                title={
+                  <>
+                    Выполнение техусловий
+                    <br />
+                    Монтаж заземления
+                  </>
+                }
+                hintText="ОСТАВЬТЕ ЗАЯВКУ И Я ПЕРЕЗВОНЮ ВАМ ЧЕРЕЗ 2 МИНУТЫ"
+                dark
+              />
             </ResponsiveWrapper>
           </Content>
         )}
@@ -95,6 +98,14 @@ const TechConditions: React.FC = () => {
               <Text type={TextType.H3}>Монтаж заземления</Text>
             </ListItemDescription>
           </ListItem>
+          <ListItem>
+            <ListItemImage>
+              <img src="/img/tech_conditions/pusk-naladka.jpg" />
+            </ListItemImage>
+            <ListItemDescription>
+              <Text type={TextType.H3}>Пусконаладочные работы</Text>
+            </ListItemDescription>
+          </ListItem>
         </ListContainer>
       </Section>
       <Discount />
@@ -130,28 +141,12 @@ const Content = styled.div`
   top: 0;
   left: 0;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   height: 100%;
   width: 100%;
 
   @media ${BreakPoint.Mobile} {
     position: static;
-  }
-`;
-
-const InfoWrapper = styled.div`
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 32px 24px;
-  margin-bottom: 64px;
-  width: 100%;
-
-  > button {
-    margin: 0 auto;
-    width: 400px;
   }
 `;
 

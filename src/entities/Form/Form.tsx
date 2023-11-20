@@ -9,6 +9,8 @@ import Text, { TextType } from "../../components/Text";
 import PhoneInput from "../../components/PhoneInput";
 
 type Props = {
+  title?: React.ReactNode;
+  hintText?: string;
   dark?: boolean;
   onSuccess?: () => void;
 };
@@ -134,8 +136,14 @@ const Form: React.FC<Props> = (props) => {
   return (
     <Container {...props}>
       <Heading>
-        <Text type={TextType.H2} white={props.dark} shadow={props.dark} bold>
-          ОСТАВЬТЕ ЗАЯВКУ
+        <Text
+          type={TextType.H2}
+          white={props.dark}
+          shadow={props.dark}
+          bold
+          center
+        >
+          {props.title || "ОСТАВЬТЕ ЗАЯВКУ"}
         </Text>
         <Text
           type={TextType.H4}
@@ -143,8 +151,9 @@ const Form: React.FC<Props> = (props) => {
           shadow={props.dark}
           opacity={0.8}
           medium
+          center
         >
-          И Я ПЕРЕЗВОНЮ ВАМ ЧЕРЕЗ 2 МИНУТЫ
+          {props.hintText || "И Я ПЕРЕЗВОНЮ ВАМ ЧЕРЕЗ 2 МИНУТЫ"}
         </Text>
       </Heading>
       <Input
@@ -201,6 +210,7 @@ const Heading = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 16px;
 `;
 
 export default Form;

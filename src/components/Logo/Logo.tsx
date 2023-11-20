@@ -21,7 +21,7 @@ const Container = styled.div`
   }
 
   @media ${BreakPoint.Desktop} {
-    width: 350px;
+    width: 300px;
   }
 `;
 
