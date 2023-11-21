@@ -6,10 +6,10 @@ import Text, { TextType } from "../Text";
 
 const Phone: React.FC = () => (
   <Container>
-    <a href="tel:+73952675474">
+    <a href="tel:+79041575474">
       <Icon name={IconName.Phone} />
       <Text type={TextType.H2} bold>
-        8 (3952) 675-474
+        8 (904) 157-54-74
       </Text>
     </a>
   </Container>
