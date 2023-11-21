@@ -10,9 +10,12 @@ const Services: React.FC = () => (
       <Item>
         <Image style={{ backgroundImage: "url('/img/services/1.png')" }} />
         <Description>
-          <Text type={TextType.H4} bold center>
+          <Text type={TextType.H4} center>
             Подключение электричества. Выполнение технических условий 220В/380В.
             Увеличение мощности.
+          </Text>
+          <Text type={TextType.H5} style={{ color: "#FF2722" }} center>
+            от 8000 руб.*
           </Text>
         </Description>
       </Item>
@@ -20,8 +23,11 @@ const Services: React.FC = () => (
       <Item>
         <Image style={{ backgroundImage: "url('/img/services/2.png')" }} />
         <Description>
-          <Text type={TextType.H4} bold center>
+          <Text type={TextType.H4} center>
             Монтаж контура заземления под ключ
+          </Text>
+          <Text type={TextType.H5} style={{ color: "#FF2722" }} center>
+            от 10000 руб.*
           </Text>
         </Description>
       </Item>
@@ -29,7 +35,7 @@ const Services: React.FC = () => (
       <Item>
         <Image style={{ backgroundImage: "url('/img/services/3.png')" }} />
         <Description>
-          <Text type={TextType.H4} bold center>
+          <Text type={TextType.H4} center>
             Электро проводка
           </Text>
           <Text type={TextType.H5} style={{ color: "#FF2722" }} center>
@@ -41,8 +47,11 @@ const Services: React.FC = () => (
       <Item>
         <Image style={{ backgroundImage: "url('/img/services/4.png')" }} />
         <Description>
-          <Text type={TextType.H4} bold center>
+          <Text type={TextType.H4} center>
             Услуги электролаборатории
+          </Text>
+          <Text type={TextType.H5} style={{ color: "#FF2722" }} center>
+            от 5500 руб.*
           </Text>
         </Description>
       </Item>
@@ -50,8 +59,11 @@ const Services: React.FC = () => (
       <Item>
         <Image style={{ backgroundImage: "url('/img/services/5.png')" }} />
         <Description>
-          <Text type={TextType.H4} bold center>
+          <Text type={TextType.H4} center>
             Установка автоматов и УЗО
+          </Text>
+          <Text type={TextType.H5} style={{ color: "#FF2722" }} center>
+            от 600 руб.*
           </Text>
         </Description>
       </Item>
@@ -59,7 +71,7 @@ const Services: React.FC = () => (
       <Item>
         <Image style={{ backgroundImage: "url('/img/services/6.png')" }} />
         <Description>
-          <Text type={TextType.H4} bold center>
+          <Text type={TextType.H4} center>
             Монтаж электрощита
           </Text>
           <Text type={TextType.H5} style={{ color: "#FF2722" }} center>
@@ -71,7 +83,7 @@ const Services: React.FC = () => (
       <Item>
         <Image style={{ backgroundImage: "url('/img/services/7.png')" }} />
         <Description>
-          <Text type={TextType.H4} bold center>
+          <Text type={TextType.H4} center>
             Установка и подключение люстр и светильников
           </Text>
           <Text type={TextType.H5} style={{ color: "#FF2722" }} center>
@@ -83,7 +95,7 @@ const Services: React.FC = () => (
       <Item>
         <Image style={{ backgroundImage: "url('/img/services/8.png')" }} />
         <Description>
-          <Text type={TextType.H4} bold center>
+          <Text type={TextType.H4} center>
             Установка фурнитуры
           </Text>
           <Text type={TextType.H5} style={{ color: "#FF2722" }} center>
