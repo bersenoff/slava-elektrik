@@ -56,7 +56,7 @@ const TechConditions: React.FC = () => {
           <FormButton label="ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ" fullWidth={isMobile} />
         </Section>
       )}
-      <Section bgColor="gray">
+      <Section title="ВИДЫ РАБОТ" bgColor="gray">
         <ListContainer>
           <ListItem>
             <ListItemImage>
