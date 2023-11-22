@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import Discount from "../Landing/components/Discount";
@@ -18,6 +18,10 @@ const TechConditions: React.FC = () => {
   const title = "Услуги электрика с выездом в Иркутске";
   const description =
     "Профессиональные услуги электрика с выездом на дом. Приеду в течении 1 часа. Замена розеток, выключателей, светильников, автоматов.";
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

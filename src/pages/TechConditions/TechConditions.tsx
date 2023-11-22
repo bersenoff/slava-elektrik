@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import Discount from "../Landing/components/Discount";
@@ -17,6 +17,10 @@ const TechConditions: React.FC = () => {
   const title = "Выполнение техусловий, монтаж заземления";
   const description =
     "Выполнение технических условий. Профессиональный монтаж заземления для вашего объекта от опытных специалистов.";
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

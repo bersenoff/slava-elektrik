@@ -8,6 +8,7 @@ type Props = {
   title?: string;
   isResponsive?: boolean;
   bgColor: "gray" | "white";
+  style?: React.CSSProperties;
 };
 
 const Section: React.FC<React.PropsWithChildren<Props>> = ({

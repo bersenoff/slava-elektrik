@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import Discount from "../Landing/components/Discount";
@@ -18,6 +18,10 @@ const TechConditions: React.FC = () => {
   const title = "Монтаж электрики под ключ в Иркутске";
   const description =
     "Замена и монтаж проводки в квартирах домах и коммерческих помещениях. Электромонтаж в новостройках и частных домах. Стаж свыше 15 лет.";
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
