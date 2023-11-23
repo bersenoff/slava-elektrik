@@ -108,7 +108,7 @@ const TechConditions: React.FC = () => {
             </ListItemImage>
             <ListItemDescription>
               <Text type={TextType.H3} center>
-                Замена автоматов, ДИФ и УХО
+                Замена автоматов, ДИФ и УЗО
               </Text>
             </ListItemDescription>
           </ListItem>
