@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import ym from "react-yandex-metrika";
 import axios from "axios";
 import styled from "styled-components";
 import { BreakPoint } from "../../constants/breakpoints";
@@ -12,6 +13,7 @@ type Props = {
   title?: React.ReactNode;
   hintText?: string;
   dark?: boolean;
+  formId?: string;
   onSuccess?: () => void;
 };
 
@@ -35,6 +37,49 @@ const Form: React.FC<Props> = (props) => {
         [name]: value,
       },
     }));
+  };
+
+  const handleYM = () => {
+    switch (props.formId) {
+      case "uslelektr_form1":
+        ym("reachGoal", "uslelektr_form1");
+        break;
+      case "uslelektr_form2":
+        ym("reachGoal", "uslelektr_form2");
+        break;
+      case "uslelektr_form3":
+        ym("reachGoal", "uslelektr_form3");
+        break;
+      case "uslelektr_form4":
+        ym("reachGoal", "uslelektr_form4");
+        break;
+      case "elektromont_form1":
+        ym("reachGoal", "elektromont_form1");
+        break;
+      case "elektromont_form2":
+        ym("reachGoal", "elektromont_form2");
+        break;
+      case "elektromont_form3":
+        ym("reachGoal", "elektromont_form3");
+        break;
+      case "elektromont_form4":
+        ym("reachGoal", "elektromont_form4");
+        break;
+      case "tu_form1":
+        ym("reachGoal", "tu_form1");
+        break;
+      case "tu_form2":
+        ym("reachGoal", "tu_form2");
+        break;
+      case "tu_form3":
+        ym("reachGoal", "tu_form3");
+        break;
+      case "tu_form4":
+        ym("reachGoal", "tu_form4");
+        break;
+      default:
+        break;
+    }
   };
 
   const handleSubmit = () => {
@@ -115,6 +160,8 @@ const Form: React.FC<Props> = (props) => {
             hideProgressBar: true,
           }
         );
+
+        handleYM();
 
         if (props.onSuccess) {
           props.onSuccess();

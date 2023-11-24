@@ -11,6 +11,8 @@ import useBreakpoints from "../../hooks/useBreakpoints";
 import ResponsiveWrapper from "../../components/ResponsiveWrapper";
 import Form from "../../entities/Form";
 import FormButton from "../../entities/FormButton";
+import Header from "../../entities/Header";
+import Footer from "../../entities/Footer";
 
 const TechConditions: React.FC = () => {
   const { isMobile, isDesktop } = useBreakpoints();
@@ -33,11 +35,13 @@ const TechConditions: React.FC = () => {
           content="Монтаж электропроводки, Монтаж проводки, Замена электропроводки, Замена электропроводки в квартире, Монтаж проводки в доме, Электромонтаж в квартире, Монтаж проводки в деревянном доме, Монтаж проводки в квартире, Стоимость замены электропроводки, Монтаж скрытой проводки, Электромонтаж проводки, Монтаж проводки в частном доме, Электромонтаж в частном доме, Монтаж кабеля, Замена электропроводки в панельном доме, Замена электропроводки в двухкомнатной квартире, Замена электропроводки в однокомнатной, Электромонтаж в квартире, Замена электропроводки в хрущевке"
         />
       </Helmet>
+      <Header formId="elektromont_form1" />
       <MainSection>
         {isDesktop && (
           <Content>
             <ResponsiveWrapper>
               <Form
+                formId="elektromont_form2"
                 title={
                   <>
                     Монтаж электрики
@@ -58,7 +62,11 @@ const TechConditions: React.FC = () => {
             {title}
           </Text>
           <Text type={TextType.H4}>{description}</Text>
-          <FormButton label="ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ" fullWidth={isMobile} />
+          <FormButton
+            formId="elektromont_form2"
+            label="ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ"
+            fullWidth={isMobile}
+          />
         </Section>
       )}
       <Section title="ВИДЫ РАБОТ" bgColor="gray">
@@ -106,8 +114,9 @@ const TechConditions: React.FC = () => {
         </ListContainer>
       </Section>
       <Discount />
-      <HowItWorks />
+      <HowItWorks formId="elektromont_form3" />
       <Reviews />
+      <Footer formId="elektromont_form4" />
     </>
   );
 };

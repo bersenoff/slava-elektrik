@@ -10,7 +10,11 @@ import { BreakPoint } from "../../constants/breakpoints";
 import FormButton from "../FormButton";
 import Icon, { IconName } from "../../components/Icon";
 
-const Footer: React.FC = () => {
+type Props = {
+  formId?: string;
+};
+
+const Footer: React.FC<Props> = ({ formId }) => {
   const { isMobile, isDesktop } = useBreakpoints();
 
   return (
@@ -22,6 +26,7 @@ const Footer: React.FC = () => {
             <>
               <Phone />
               <FormButton
+                formId={formId}
                 label={isMobile ? "ЗАКАЗАТЬ" : "ЗАКАЗАТЬ ЗВОНОК"}
                 shadow
               />

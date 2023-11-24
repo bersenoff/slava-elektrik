@@ -11,6 +11,8 @@ import useBreakpoints from "../../hooks/useBreakpoints";
 import ResponsiveWrapper from "../../components/ResponsiveWrapper";
 import Form from "../../entities/Form";
 import FormButton from "../../entities/FormButton";
+import Header from "../../entities/Header";
+import Footer from "../../entities/Footer";
 
 const TechConditions: React.FC = () => {
   const { isMobile, isDesktop } = useBreakpoints();
@@ -33,11 +35,13 @@ const TechConditions: React.FC = () => {
           content="электрик, вызов электрика на дом, услуги электрика, услуги электрика Иркутск, электрик на дом Иркутск, электрик цена, электрик недорого, ремонт электрики, вызвать электрика, ремонт электрики, частный электрик, замена розеток, монтаж люстр, замена автоматов, ремонт проводки"
         />
       </Helmet>
+      <Header formId="uslelektr_form1" />
       <MainSection>
         {isDesktop && (
           <Content>
             <ResponsiveWrapper>
               <Form
+                formId="uslelektr_form2"
                 title={
                   <>
                     Услуги электрика
@@ -57,7 +61,11 @@ const TechConditions: React.FC = () => {
             {title}
           </Text>
           <Text type={TextType.H4}>{description}</Text>
-          <FormButton label="ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ" fullWidth={isMobile} />
+          <FormButton
+            formId="uslelektr_form2"
+            label="ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ"
+            fullWidth={isMobile}
+          />
         </Section>
       )}
       <Section title="ВИДЫ РАБОТ" bgColor="gray">
@@ -115,8 +123,9 @@ const TechConditions: React.FC = () => {
         </ListContainer>
       </Section>
       <Discount />
-      <HowItWorks />
+      <HowItWorks formId="uslelektr_form3" />
       <Reviews />
+      <Footer formId="uslelektr_form4" />
     </>
   );
 };

@@ -11,6 +11,8 @@ import ResponsiveWrapper from "../../components/ResponsiveWrapper";
 import useBreakpoints from "../../hooks/useBreakpoints";
 import FormButton from "../../entities/FormButton";
 import Form from "../../entities/Form";
+import Header from "../../entities/Header";
+import Footer from "../../entities/Footer";
 
 const TechConditions: React.FC = () => {
   const { isDesktop, isMobile } = useBreakpoints();
@@ -32,11 +34,13 @@ const TechConditions: React.FC = () => {
           content="технологическое присоединение, технологическое присоединение к электрическим сетям, подключение электричества, подключение электричества к дому, ввод электричества в дом, установка бетонных опор, монтаж СИП, Подключение к электросети, Подключение электроэнергии, Заземление, выполнить контур заземления"
         />
       </Helmet>
+      <Header formId="tu_form1" />
       <MainSection>
         {isDesktop && (
           <Content>
             <ResponsiveWrapper>
               <Form
+                formId="tu_form2"
                 title={
                   <>
                     Выполнение техусловий
@@ -57,7 +61,11 @@ const TechConditions: React.FC = () => {
             {title}
           </Text>
           <Text type={TextType.H4}>{description}</Text>
-          <FormButton label="ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ" fullWidth={isMobile} />
+          <FormButton
+            formId="tu_form2"
+            label="ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ"
+            fullWidth={isMobile}
+          />
         </Section>
       )}
       <Section title="ВИДЫ РАБОТ" bgColor="gray">
@@ -113,8 +121,9 @@ const TechConditions: React.FC = () => {
         </ListContainer>
       </Section>
       <Discount />
-      <HowItWorks />
+      <HowItWorks formId="tu_form3" />
       <Reviews />
+      <Footer formId="tu_form4" />
     </>
   );
 };

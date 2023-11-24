@@ -1,10 +1,8 @@
 import React from "react";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { YMInitializer } from "react-yandex-metrika";
 
-import Header from "./entities/Header";
-import Footer from "./entities/Footer";
 import Landing from "./pages/Landing";
 import TechConditions from "./pages/TechConditions";
 import "react-toastify/dist/ReactToastify.css";
@@ -34,10 +32,17 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Header />
       <RouterProvider router={router} />
-      <Footer />
       <ToastContainer />
+      <YMInitializer
+        accounts={[95674050]}
+        options={{
+          clickmap: true,
+          trackLinks: true,
+          accurateTrackBounce: true,
+          webvisor: true,
+        }}
+      />
     </>
   );
 };

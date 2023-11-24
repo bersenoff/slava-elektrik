@@ -14,12 +14,15 @@ import FormButton from "../../entities/FormButton";
 import useBreakpoints from "../../hooks/useBreakpoints";
 import { BreakPoint } from "../../constants/breakpoints";
 import Button from "../../components/Button";
+import Header from "../../entities/Header";
+import Footer from "../../entities/Footer";
 
 const Landing: React.FC = () => {
   const { isMobile, isDesktop } = useBreakpoints();
 
   return (
     <>
+      <Header />
       <MainSection />
       {!isDesktop && (
         <Section bgColor="white">
@@ -83,6 +86,7 @@ const Landing: React.FC = () => {
       <Services />
       <HowItWorks />
       <Reviews />
+      <Footer />
     </>
   );
 };

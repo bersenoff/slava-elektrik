@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import Button from "../../components/Button";
-import { Props } from "../../components/Button/Button";
+import { Props as ButtonProps } from "../../components/Button/Button";
 import Modal from "../../components/Modal";
 import Form from "../Form";
 
-const FormButton: React.FC<Props> = (props) => {
+type Props = {
+  formId?: string;
+} & ButtonProps;
+
+const FormButton: React.FC<Props> = ({ formId, ...props }) => {
   const [isModalShow, setIsModalShow] = useState(false);
 
   const openModal = () => setIsModalShow(true);
@@ -14,7 +18,7 @@ const FormButton: React.FC<Props> = (props) => {
     <>
       <Button {...props} onClick={openModal} />
       <Modal isShow={isModalShow} onClose={closeModal}>
-        <Form onSuccess={closeModal} />
+        <Form formId={formId} onSuccess={closeModal} />
       </Modal>
     </>
   );

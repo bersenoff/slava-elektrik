@@ -6,7 +6,11 @@ import Text, { TextType } from "../../../components/Text";
 import useBreakpoints from "../../../hooks/useBreakpoints";
 import FormButton from "../../../entities/FormButton";
 
-const HowItWorks: React.FC = () => {
+type Props = {
+  formId?: string;
+};
+
+const HowItWorks: React.FC<Props> = ({ formId }) => {
   const { isMobile } = useBreakpoints();
 
   return (
@@ -48,7 +52,12 @@ const HowItWorks: React.FC = () => {
           </Text>
         </Item>
       </Items>
-      <FormButton label="ВЫЗВАТЬ МАСТЕРА" fullWidth={isMobile} shadow />
+      <FormButton
+        formId={formId}
+        label="ВЫЗВАТЬ МАСТЕРА"
+        fullWidth={isMobile}
+        shadow
+      />
     </Section>
   );
 };
